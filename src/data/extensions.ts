@@ -58,4 +58,26 @@ export const extensions: Extension[] = [
       'Query history',
     ],
   },
+  {
+    id: 'jakubkozera.azure-service-bus-explorer',
+    name: 'Azure Service Bus Explorer',
+    description:
+      'Complete Azure Service Bus management tool for VS Code — explore namespaces, send and receive messages, manage queues and topics.',
+    longDescription:
+      'Azure Service Bus Explorer brings full-featured Service Bus management directly into VS Code. Connect to Azure Service Bus namespaces, browse queues and topics, send and receive messages, peek dead-letter queues, and monitor message flow without leaving your editor.',
+    publisher: 'Jakub Kozera',
+    iconUrl: 'https://jakubkozera.gallerycdn.vsassets.io/extensions/jakubkozera/azure-service-bus-explorer/0.1.1/1777888260596/Microsoft.VisualStudio.Services.Icons.Default',
+    marketplaceUrl:
+      'https://marketplace.visualstudio.com/items?itemName=JakubKozera.azure-service-bus-explorer',
+    openVsxUrl: 'https://open-vsx.org/extension/jakubkozera/azure-service-bus-explorer',
+    tags: ['Azure', 'Service Bus', 'Messaging', 'Cloud'],
+    features: [
+      'Connect to Azure Service Bus namespaces',
+      'Browse queues, topics, and subscriptions',
+      'Send and receive messages',
+      'Peek and manage dead-letter queues',
+      'Monitor message counts and properties',
+      'Export and import messages',
+    ],
+  },
 ];
