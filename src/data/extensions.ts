@@ -80,4 +80,26 @@ export const extensions: Extension[] = [
       'Export and import messages',
     ],
   },
+  {
+    id: 'jakubkozera.azure-application-insights-explorer',
+    name: 'Azure Application Insights Explorer',
+    description:
+      'Browse and analyze Azure Application Insights telemetry directly in VS Code — query logs, traces, exceptions, and dependencies.',
+    longDescription:
+      'Azure Application Insights Explorer integrates Application Insights monitoring into VS Code. Query telemetry data, analyze logs and traces, investigate exceptions, explore dependencies, and view performance metrics without switching context from your editor.',
+    publisher: 'Jakub Kozera',
+    iconUrl: 'https://jakubkozera.gallerycdn.vsassets.io/extensions/jakubkozera/azure-application-insights-explorer/0.1.0/1779620083010/Microsoft.VisualStudio.Services.Icons.Default',
+    marketplaceUrl:
+      'https://marketplace.visualstudio.com/items?itemName=JakubKozera.azure-application-insights-explorer',
+    openVsxUrl: 'https://open-vsx.org/extension/jakubkozera/azure-application-insights-explorer',
+    tags: ['Azure', 'Application Insights', 'Monitoring', 'Telemetry'],
+    features: [
+      'Connect to Azure Application Insights resources',
+      'Query logs, traces, and custom events',
+      'Analyze exceptions and failures',
+      'Explore dependencies and request flow',
+      'View performance metrics and KPIs',
+      'Execute KQL queries with IntelliSense',
+    ],
+  },
 ];
