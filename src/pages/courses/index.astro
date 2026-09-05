@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { courses } from '../../data/courses';
+---
+
+<Layout
+  title="Udemy Courses by Jakub Kozera"
+  description="Practical Udemy courses for .NET developers - Web API with Clean Architecture, Entity Framework Core and Azure DevOps."
+>
+  <!-- Header / Hero -->
+  <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white">
+    <div class="max-w-5xl mx-auto px-6 py-20 text-center">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-8"
+      >
+        <!-- tabler: arrow-left -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" />
+        </svg>
+        jakubkozera.dev
+      </a>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-5 leading-tight">
+        Online Courses<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+          for .NET Developers
+        </span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+        Practical, project-based Udemy courses covering modern backend development - from building
+        scalable Web APIs, through databases with Entity Framework Core, to automated deployments
+        with Azure DevOps.
+      </p>
+    </div>
+  </header>
+
+  <!-- Courses list -->
+  <main class="max-w-5xl mx-auto px-6 py-16">
+    <div class="grid gap-8">
+      {
+        courses.map((course) => (
+          <article class="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+            <div class="grid md:grid-cols-[320px_1fr]">
+              <a href={`/courses/${course.slug}`} class="block relative">
+                <img
+                  src={course.image}
+                  alt={course.fullTitle}
+                  class="w-full h-full object-cover aspect-video md:aspect-auto"
+                  loading="lazy"
+                />
+              </a>
+              <div class="p-6 sm:p-8 flex flex-col">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {course.tags.slice(0, 4).map((tag) => (
+                    <span class="text-xs font-medium bg-blue-50 text-blue-700 rounded-full px-2.5 py-1">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                  <a href={`/courses/${course.slug}`} class="hover:text-blue-700 transition-colors">
+                    {course.name}
+                  </a>
+                </h2>
+                <p class="text-gray-500 text-sm mb-4">{course.headline}</p>
+
+                <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-gray-600 mb-6">
+                  <span class="inline-flex items-center gap-1.5">
+                    <!-- tabler: star -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                    </svg>
+                    <strong class="text-gray-900">{course.rating}</strong>
+                    {course.ratingsCount && <span class="text-gray-400">({course.ratingsCount.toLocaleString('en-US')} ratings)</span>}
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <!-- tabler: users -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                    </svg>
+                    {course.students.toLocaleString('en-US')} students
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <!-- tabler: clock -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 7v5l3 3" />
+                    </svg>
+                    {course.totalLength}
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <!-- tabler: language -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 5h7" /><path d="M9 3v2c0 4.418 -2.239 8 -5 8" /><path d="M5 9c0 2.144 2.952 3.908 6.7 4" /><path d="M12 20l4 -9l4 9" /><path d="M19.1 18h-6.2" />
+                    </svg>
+                    {course.language}
+                  </span>
+                </div>
+
+                <div class="mt-auto flex flex-wrap gap-3">
+                  <a
+                    href={`/courses/${course.slug}`}
+                    class="inline-flex items-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-700 transition-colors px-5 py-2.5 text-sm font-semibold text-white"
+                  >
+                    Course details
+                    <!-- tabler: arrow-right -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" />
+                    </svg>
+                  </a>
+                  <a
+                    href={course.udemyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 rounded-xl border border-blue-600 text-blue-700 hover:bg-blue-50 transition-colors px-5 py-2.5 text-sm font-semibold"
+                  >
+                    Get it on Udemy
+                    <!-- tabler: external-link -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" /><path d="M11 13l9 -9" /><path d="M15 4h5v5" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 bg-white mt-8">
+    <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+      <p>Built by <a href="https://jakubkozera.dev" class="text-blue-600 hover:underline">Jakub Kozera</a></p>
+      <div class="flex gap-6">
+        <a href="/" class="hover:text-gray-800 transition-colors">VS Code Extensions</a>
+        <a href="https://www.udemy.com/user/jakub-kozera-2/" target="_blank" rel="noopener noreferrer" class="hover:text-gray-800 transition-colors">Udemy Profile</a>
+        <a href="https://github.com/jakubkozera" target="_blank" rel="noopener noreferrer" class="hover:text-gray-800 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
